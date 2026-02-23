@@ -46,9 +46,7 @@ class SwagLabsSpec extends Specification {
         driver?.quit()
     }
 
-    // =========================================================================
     // TEST 1 — Login with valid credentials
-    // =========================================================================
     def "Test 1: User can log in with valid credentials"() {
 
         given: "The user is on the Swag Labs login page"
@@ -66,9 +64,7 @@ class SwagLabsSpec extends Specification {
         heading.text == "Products"
     }
 
-    // =========================================================================
     // TEST 2 — Add a product to the cart
-    // =========================================================================
     def "Test 2: User can add a product to the shopping cart"() {
 
         given: "The user is on the Products page (after login in Test 1)"
@@ -83,9 +79,7 @@ class SwagLabsSpec extends Specification {
         cartBadge.text == "1"
     }
 
-    // =========================================================================
     // TEST 3 — Product details page
-    // =========================================================================
     def "Test 3: Clicking a product name opens its detail page"() {
 
         given: "The user goes back to the Products page"
@@ -105,10 +99,8 @@ class SwagLabsSpec extends Specification {
         detailName.text == productName
     }
 
-    // =========================================================================
     // TEST 4 — Logout
-    // =========================================================================
-    def "Test 4: User can log out and returns to the login page"() {
+        def "Test 4: User can log out and returns to the login page"() {
 
         given: "The user is on the inventory page"
         driver.get(BASE_URL + "/inventory.html")
