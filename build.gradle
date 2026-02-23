@@ -1,0 +1,43 @@
+plugins {
+    id 'groovy'
+}
+
+group = 'org.example'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    seleniumVersion = '4.21.0'
+    spockVersion    = '2.4-groovy-4.0'
+    groovyVersion   = '4.0.17'
+}
+
+dependencies {
+    // Groovy - must be 'implementation' so compileGroovy task can find it
+    implementation "org.apache.groovy:groovy:$groovyVersion"
+
+    // Spock test framework
+    testImplementation "org.spockframework:spock-core:$spockVersion"
+
+    // JUnit Platform - required for Spock to run via useJUnitPlatform()
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.10.2'
+    testImplementation 'org.junit.platform:junit-platform-engine:1.10.2'
+    testImplementation 'org.junit.platform:junit-platform-commons:1.10.2'
+
+    // Selenium - full bundle (no WebDriverManager needed - using local driver)
+    testImplementation "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
+
+    // SLF4J - removes the "No SLF4J providers" warning
+    testImplementation 'org.slf4j:slf4j-simple:2.0.9'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+}
