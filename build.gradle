@@ -10,9 +10,10 @@ repositories {
 }
 
 ext {
-    seleniumVersion = '4.21.0'
-    spockVersion    = '2.4-groovy-4.0'
-    groovyVersion   = '4.0.17'
+    gebVersion = '5.1'
+    seleniumVersion = '4.18.1'
+    spockVersion = '2.3-groovy-4.0'
+    groovyVersion = '4.0.17'
 }
 
 dependencies {
